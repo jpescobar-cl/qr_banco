@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Datos bancarios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .box {
+      background: white;
+      padding: 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      background: #eef;
+      padding: 1em;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 1em;
+      padding: 0.7em 1.2em;
+      font-size: 1em;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Datos Bancarios</h2>
+    <pre id="datos">
+Banco: Banco Ficticio
+Nombre: Juan Pablo Escobar
+Cuenta Corriente: 123456789
+RUT: 12.345.678-9
+    </pre>
+    <button onclick="copiarTexto()">Copiar al portapapeles</button>
+  </div>
+
+  <script>
+    function copiarTexto() {
+      const texto = document.getElementById("datos").innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("¡Datos copiados al portapapeles!");
+      }).catch(err => {
+        alert("Error al copiar: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
